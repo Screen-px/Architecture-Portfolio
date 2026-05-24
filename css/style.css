@@ -1,0 +1,502 @@
+/* ===== 日系极简 建筑作品集 ===== */
+/* 浒 — Architectural Portfolio */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+:root {
+  --white: #FFFFFF;
+  --cream: #FBF9F6;
+  --light-blue: #C4DCE8;
+  --blue-gray: #8FAFBE;
+  --text: #2C2C2C;
+  --text-light: #6B6B6B;
+  --border: #E8E4DF;
+  --shadow: rgba(0, 0, 0, 0.04);
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, 'Microsoft YaHei', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 导航 ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 0.8rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--blue-gray);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== 首屏大图 ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: heroZoom 1.6s ease-out;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 12%;
+  left: 4rem;
+  color: #fff;
+}
+
+.hero-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  opacity: 0.85;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  animation: scrollBounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 0.4; }
+}
+
+/* ===== 区块通用 ===== */
+.section {
+  padding: 7rem 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text);
+}
+
+.section-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--blue-gray);
+  margin: 1.2rem auto 0;
+}
+
+/* ===== 项目列表 ===== */
+.projects {
+  background: var(--cream);
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.project-card:nth-child(even) {
+  direction: rtl;
+}
+
+.project-card:nth-child(even) .project-info {
+  direction: ltr;
+}
+
+.project-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  direction: ltr;
+}
+
+.project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .project-image-wrap img {
+  transform: scale(1.04);
+}
+
+.project-info {
+  direction: ltr;
+}
+
+.project-number {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.75rem;
+  color: var(--blue-gray);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+
+.project-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--blue-gray);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.project-card:hover .project-link {
+  border-bottom-color: var(--blue-gray);
+}
+
+/* ===== 关于我 ===== */
+.about {
+  background: var(--white);
+}
+
+.about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin-bottom: 1.5rem;
+}
+
+.about-philosophy {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+.about-philosophy::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--blue-gray);
+  margin: 0 auto 2rem;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  background: var(--cream);
+  padding: 3rem 4rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+}
+
+/* ===== 项目详情页 ===== */
+.detail-page {
+  padding-top: 80px;
+}
+
+.detail-hero {
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  background: var(--cream);
+  text-align: center;
+}
+
+.detail-hero img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.detail-header {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.detail-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.detail-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--blue-gray);
+  letter-spacing: 0.2em;
+  margin-top: 0.8rem;
+}
+
+.detail-gallery {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.detail-gallery img {
+  width: 100%;
+  display: block;
+  box-shadow: 0 2px 20px var(--shadow);
+}
+
+/* ===== 返回按钮 ===== */
+.back-link {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 2px;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* ===== 渐入动画 ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+  .nav.scrolled {
+    padding: 0.6rem 1.5rem;
+  }
+  .nav-links {
+    gap: 1.2rem;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+
+  .hero-content {
+    left: 1.5rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+  .hero-caption {
+    bottom: 1.5rem;
+    right: 1.2rem;
+    font-size: 0.7rem;
+  }
+
+  .section {
+    padding: 4rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .project-card:nth-child(even) {
+    direction: ltr;
+  }
+  .project-name {
+    font-size: 1.3rem;
+  }
+
+  .about-name {
+    font-size: 1.6rem;
+  }
+  .about-philosophy {
+    font-size: 0.9rem;
+  }
+
+  .detail-title {
+    font-size: 1.5rem;
+  }
+}
