@@ -50,7 +50,7 @@ body {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   padding: 0.8rem 4rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--light-blue);
 }
 
 .nav-logo {
@@ -173,7 +173,7 @@ body {
 .section-line {
   display: block;
   width: 40px; height: 1px;
-  background: var(--blue-gray);
+  background: var(--light-blue);
   margin: 1.2rem auto 0;
 }
 
@@ -300,6 +300,8 @@ body {
   color: var(--blue-gray);
   letter-spacing: 0.2em;
   white-space: nowrap;
+  background: rgba(196, 220, 232, 0.2);
+  padding: 0.3rem 1.2rem;
 }
 
 /* ===== 基础练习网格（2x2） ===== */
@@ -317,7 +319,13 @@ body {
   transition: transform 0.4s ease;
 }
 
-.exercise-card:hover { transform: translateY(-3px); }
+.exercise-card:hover {
+  transform: translateY(-3px);
+}
+
+.exercise-card:hover .project-image-wrap::after {
+  background: rgba(196, 220, 232, 0.12);
+}
 
 .exercise-card .project-image-wrap {
   aspect-ratio: 4 / 3;
@@ -356,9 +364,9 @@ body {
   display: block;
   width: 48px; height: 48px;
   border: 1px solid var(--light-blue);
+  background: rgba(196, 220, 232, 0.15);
   border-radius: 50%;
   margin: 0 auto 2.5rem;
-  opacity: 0.6;
 }
 
 .about-name {
@@ -400,9 +408,8 @@ body {
 
 .footer-divider {
   width: 30px; height: 1px;
-  background: var(--blue-gray);
+  background: var(--light-blue);
   margin: 1rem auto;
-  opacity: 0.5;
 }
 
 .footer-text {
@@ -472,7 +479,7 @@ body {
 }
 
 .detail-gallery img:hover {
-  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 30px rgba(143, 175, 190, 0.15);
   transform: translateY(-2px);
 }
 
@@ -491,17 +498,21 @@ body {
   padding: 0.5rem 1rem;
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(8px);
-  transition: background 0.2s ease;
+  border-left: 2px solid var(--light-blue);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.back-link:hover { background: rgba(255,255,255,1); }
+.back-link:hover {
+  background: rgba(255,255,255,1);
+  border-left-color: var(--blue-gray);
+}
 
 /* ===== 进度条 ===== */
 .progress-bar {
   position: fixed;
   top: 0; left: 0;
   height: 2px;
-  background: var(--blue-gray);
+  background: var(--light-blue);
   z-index: 200;
   transition: width 0.1s linear;
 }
