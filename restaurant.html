@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中餐厅设计 — 浒</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%232C2C2C'/><text x='50' y='68' text-anchor='middle' fill='%23fff' font-size='52' font-family='serif'>浒</text></svg>">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="detail-page">
+
+  <div class="progress-bar"></div>
 
   <a href="index.html" class="back-link">← 返回</a>
 
@@ -20,14 +23,21 @@
   </div>
 
   <div class="detail-gallery">
-    <img src="images/restaurant/01.jpg" alt="中餐厅设计 图纸">
-    <img src="images/restaurant/02.jpg" alt="中餐厅设计 图纸">
-    <img src="images/restaurant/03.jpg" alt="中餐厅设计 图纸">
+    <img src="images/restaurant/01.jpg" alt="中餐厅设计 图纸" loading="lazy">
+    <img src="images/restaurant/02.jpg" alt="中餐厅设计 图纸" loading="lazy">
+    <img src="images/restaurant/03.jpg" alt="中餐厅设计 图纸" loading="lazy">
+  </div>
+
+  <div class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="">
   </div>
 
   <footer class="footer">
     <p class="footer-text">© 2026 浒 &nbsp;—&nbsp; Architectural Portfolio</p>
   </footer>
 
+  <button class="scroll-top" aria-label="回到顶部"></button>
+  <script src="js/main.js"></script>
 </body>
 </html>

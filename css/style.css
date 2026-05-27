@@ -441,6 +441,155 @@ body {
   transform: translateY(0);
 }
 
+/* ===== 滚动进度条 ===== */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--blue-gray);
+  z-index: 200;
+  transition: width 0.1s linear;
+}
+
+/* ===== 回到顶部 ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: var(--white);
+  border-color: var(--blue-gray);
+}
+
+.scroll-top::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid var(--text);
+  border-top: 1px solid var(--text);
+  transform: rotate(45deg) translateY(2px);
+}
+
+/* ===== 灯箱 ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  cursor: default;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.open img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  color: #fff;
+}
+
+/* ===== 图片可点击提示 ===== */
+.detail-gallery img {
+  cursor: zoom-in;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.detail-gallery img:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== 项目卡片增强 ===== */
+.project-card {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-image-wrap {
+  border-radius: 2px;
+}
+
+.project-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.4s ease;
+}
+
+.project-card:hover .project-image-wrap::after {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* ===== 图片懒加载占位 ===== */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
 /* ===== 响应式 ===== */
 @media (max-width: 768px) {
   .nav {
